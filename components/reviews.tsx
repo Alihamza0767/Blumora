@@ -5,10 +5,10 @@ import { Star } from "lucide-react"
 
 const reviews = [
   {
-    name: "Sarah Mitchell",
-    company: "Bloom & Co",
+    name: "Fawad M Mirza",
+    company: "Musanif PVT Limited",
     rating: 5,
-    text: "Blumora transformed our brand identity completely. Their thoughtful approach helped us find our authentic voice and connect with our audience in meaningful ways.",
+    text: "Working with Blumora was excellent. Their team provided clear guidance on management and marketing, took time to understand our vision, and offered thoughtful solutions. Highly recommend for practical, honest marketing advice.",
   },
   {
     name: "James Chen",
