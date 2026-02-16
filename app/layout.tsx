@@ -27,7 +27,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${crimsonPro.variable} ${inter.variable} font-sans antialiased`}>{children}</body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (history.scrollRestoration) {
+                  history.scrollRestoration = 'manual';
+                }
+                window.scrollTo(0, 0);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className={`${crimsonPro.variable} ${inter.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
   )
 }
