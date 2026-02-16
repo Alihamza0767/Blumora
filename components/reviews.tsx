@@ -5,7 +5,7 @@ import { Star } from "lucide-react"
 
 const reviews = [
   {
-    name: "Fawad M Mirza",
+    name: "Fawad M. Mirza",
     company: "Musanif PVT Limited",
     rating: 5,
     text: "Working with Blumora was excellent. Their team provided clear guidance on management and marketing, took time to understand our vision, and offered thoughtful solutions. Highly recommend for practical, honest marketing advice.",
@@ -67,7 +67,7 @@ export function Reviews() {
           }
         }
         .reviews-scroll {
-          animation: scroll-left 60s linear infinite;
+          animation: scroll-left 30s linear infinite;
         }
       `}</style>
 
