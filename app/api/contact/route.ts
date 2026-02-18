@@ -38,8 +38,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Email error:", error)
+    // Return error details for debugging (remove or simplify in production)
     return NextResponse.json(
-      { error: "Failed to send message" },
+      { error: "Failed to send message", details: (error as any)?.message ?? String(error) },
       { status: 500 }
     )
   }
