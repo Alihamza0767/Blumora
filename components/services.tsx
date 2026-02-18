@@ -1,29 +1,76 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Lightbulb, TrendingUp, Palette, Target } from "lucide-react"
+import { Video, TrendingUp, Palette, Instagram, Network, FolderCode } from "lucide-react"
 
 const services = [
   {
-    icon: Target,
-    title: "Brand Strategy",
-    description: "Define your unique position and craft a compelling narrative that resonates with your audience",
+    icon: Instagram,
+    title: "Social Media Management",
+    description: "We build and manage your social presence to drive engagement, growth, and brand authority",
+    features: [
+      "Content creation",
+      "Posting & Scheduling",
+      "Community management",
+      "Performance monitoring & optimization",
+    ],
   },
   {
-    icon: Lightbulb,
-    title: "Creative Direction",
-    description: "Bring your vision to life with thoughtful design that balances beauty and function",
+    icon: Video,
+    title: "Meta Ads",
+    description: "We create and scale high-converting Meta ad campaigns that turn clicks into customers",
+    features: [
+      "Campaign setup & targeting",
+      "Creative ad design & copywriting",
+      "A/B testing & optimization",
+      "ROI tracking & performance scaling",
+    ],
   },
   {
     icon: Palette,
-    title: "Visual Identity",
-    description: "Create cohesive brand systems that communicate your values across every touchpoint",
+    title: "Brand Identity",
+    description: "We craft distinctive brand identities that make your business instantly recognizable",
+    features: [
+      "Logo & visual system",
+      "Color & typography guidelines",
+      "Brand messaging & voice",
+      "Asset library for web & social",
+    ],
   },
   {
     icon: TrendingUp,
-    title: "Growth Consulting",
-    description: "Develop sustainable strategies that help your brand bloom in meaningful ways",
+    title: "Brand Strategy",
+    description: "We develop strategic roadmaps that position your brand for sustainable growth",
+    features: [
+      "Market & competitor analysis",
+      "Positioning & value props",
+      "Roadmap & KPI definition",
+      "Go-to-market planning",
+    ],
   },
+  {
+    icon: Network,
+    title: "Analytics & Reporting",
+    description: "We transform data into actionable insights that fuel smarter business decisions",
+    features: [
+      "KPI tracking & dashboard setup",
+      "Campaign performance analysis",
+      "Monthly performance reports",
+      "Data-driven recommendations",
+    ],
+  },
+  {
+    icon: FolderCode,
+    title: "Website Development",
+    description: "We design and develop high-performing websites that convert visitors into clients",
+    features: [
+      "Responsive UI & accessibility",
+      "Performance & SEO basics",
+      "CMS or e-commerce setup",
+      "Post-launch monitoring",
+    ],
+  },
+
 ]
 
 export function Services() {
@@ -57,7 +104,7 @@ export function Services() {
         <div
           className={`text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-secondary mb-6">{"What We Offer"}</p>
+          <p className="text-sm uppercase tracking-[0.5em] text-secondary mb-6">{"What We Offer"}</p>
           <h2 className="text-5xl md:text-7xl font-light leading-tight text-balance">
             {"Services that help"}
             <br />
@@ -66,12 +113,12 @@ export function Services() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-20">
           {services.map((service, index) => {
             const Icon = service.icon
-            return (
+            return ( 
               <div
-                key={service.title}
+                key={`${service.title}-${index}`}
                 className={`flip-card h-80 transition-all duration-500 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
@@ -79,7 +126,7 @@ export function Services() {
                   transitionDelay: `${200 + index * 100}ms`,
                 }}
               >
-                <div className="flip-card-inner">
+                <div className="flip-card-inner mt-10">
                   {/* Front of card */}
                   <div className="flip-card-front p-10 rounded-2xl bg-card border border-border flex flex-col shadow-sm">
                     <div className="mb-6 w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center">
@@ -96,22 +143,12 @@ export function Services() {
                   <div className="flip-card-back p-10 rounded-2xl bg-gradient-to-br from-secondary/10 to-primary/10 border border-secondary/50 flex flex-col justify-center shadow-xl">
                     <h3 className="text-2xl font-semibold mb-6 text-foreground">{`${service.title} includes:`}</h3>
                     <ul className="space-y-3 text-muted-foreground">
-                      <li className="flex items-start gap-3">
-                        <span className="text-secondary mt-1">{"•"}</span>
-                        <span>{"Discovery & research phase"}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-secondary mt-1">{"•"}</span>
-                        <span>{"Strategic planning & insights"}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-secondary mt-1">{"•"}</span>
-                        <span>{"Implementation support"}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-secondary mt-1">{"•"}</span>
-                        <span>{"Ongoing optimization"}</span>
-                      </li>
+                      {service.features?.map((feat, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-secondary mt-1">{"•"}</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
